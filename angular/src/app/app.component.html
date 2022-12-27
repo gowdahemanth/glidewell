@@ -1,0 +1,51 @@
+<h1>CRUD app</h1>
+
+<button (click)="getData()">View data</button>
+<ul>
+  <li *ngFor="let item of postData">
+    {{ item.id }} - {{ item.firstName }} {{ item.lastName }}
+  </li>
+</ul>
+<br />
+<p>
+  <b>Insert</b> - Enter first name and last name. Id is auto generated and user
+  given id is discarded.
+</p>
+<p>
+  <b>Edit</b> - Enter the Id of the record to be modified along with the new
+  first name and last name.
+</p>
+<p>
+  <b>Delete</b> - Enter the Id of the record to be deleted. Values entered on
+  first and last name fields is discarded.
+</p>
+<form #userPost="ngForm">
+  <label class="lbl1">Id: </label>
+  <input
+    type="text"
+    size=""
+    name="id"
+    [(ngModel)]="id"
+    placeholder="Id"
+  /><br /><br />
+  <label>First Name: </label>
+  <input
+    type="text"
+    size=""
+    name="fname"
+    [(ngModel)]="fName"
+    placeholder="first name"
+  /><br /><br />
+  <label>Last Name: </label>
+  <input
+    type="text"
+    size=""
+    name="lname"
+    [(ngModel)]="lName"
+    placeholder="last name"
+  />
+  <br /><br />
+  <button class="btn1" type="submit" (click)="onInsert()">Insert</button>
+  <button class="btn1" type="submit" (click)="onEdit()">Edit</button>
+  <button type="submit" (click)="onDelete()">Delete</button>
+</form>
